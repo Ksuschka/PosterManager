@@ -2,20 +2,18 @@ package ru.netology.manager;
 
 import ru.netology.domain.Movie;
 
+
 public class AfishaManager {
-
-    public static final Movie bloodshot = new Movie(1, 010, "bloodshot", "hitman", false);
-    public static final Movie forward = new Movie(2, 011, "forward", "cartoon", false);
-    public static final Movie hotelBelgrade = new Movie(3, 012, "hotelBelgrade", "comedy", false);
-    public static final Movie gentlemen = new Movie(4, 013, "gentlemen", "hitman", false);
-    public static final Movie invisibleMan = new Movie(5, 014, "invisibleMan", "horrors", false);
-    public static final Movie trollsWorldTour = new Movie(6, 015, "trollsWorldTour", "cartoon", true);
-    public static final Movie numberOne = new Movie(7, 016, "numberOne", "comedy", true);
-    public static final Movie houseGucci = new Movie(8, 017, "houseGucci", "drama", false);
-    public static final Movie encanto = new Movie(9, 021, "encanto", "cartoon", false);
-    public static final Movie pilot = new Movie(10, 022, "pilot", "biography", false);
-
+    private int resultLength;
     public Movie[] movies = new Movie[0];
+
+    public AfishaManager() {
+        this.resultLength = 10;
+    }
+
+    public AfishaManager(int resultLength) {
+        this.resultLength = resultLength;
+    }
 
     // добавление фильма в ленту
     public void add(Movie movie) {
@@ -30,10 +28,10 @@ public class AfishaManager {
     }
 
 
-    public Movie[] getAll(int resultLength) {
+    public Movie[] getAll() {
         int movieCount;
-        if (resultLength <= movies.length) {
-            movieCount = resultLength;
+        if (this.resultLength <= movies.length) {
+            movieCount = this.resultLength;
         } else {
             movieCount = movies.length;
         }
@@ -43,11 +41,6 @@ public class AfishaManager {
             result[i] = movies[index];
         }
         return result;
-    }
-
-    public Movie[] getAll() {
-        int resultLength = 10;
-        return this.getAll(resultLength);
     }
 }
 
