@@ -75,4 +75,28 @@ public class AfishaManagerTest {
         assertArrayEquals(expected, actual);
 
     }
+
+    @Test
+    public void shouldShow10() {
+        AfishaManager manager = new AfishaManager(10);
+        for (int i = 0; i < testMovies.length; i++) {
+            manager.add(testMovies[i]);
+        }
+        Movie[] actual = manager.getAll();
+        Movie[] expected = new Movie[]{pilot, encanto, houseGucci, numberOne, trollsWorldTour, invisibleMan, gentlemen, hotelBelgrade, forward, bloodshot};
+        assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldShow0() {
+        AfishaManager manager = new AfishaManager(0);
+        for (int i = 0; i < testMovies.length; i++) {
+            manager.add(testMovies[i]);
+        }
+        Movie[] actual = manager.getAll();
+        Movie[] expected = new Movie[]{};
+        assertArrayEquals(expected, actual);
+
+    }
 }
